@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<head>
+   <title>Web Server</title>
+   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+rel="stylesheet" 
+integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" 
+crossorigin="anonymous">
+  <link rel="stylesheet" 
+href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" 
+integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" 
+crossorigin="anonymous">
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" 
+integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" 
+crossorigin="anonymous"></script>
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+   <h1>Web Server - ESP8266</h1>
+   {% for pin in pins %}
+   <h2>{{ pins[pin].name }}
+   {% if pins[pin].state == 'True' %}
+      is currently <strong>on</strong></h2><div class="row"><div 
+class="col-md-2">
+      <a href="/esp8266/{{pin}}/0" class="btn btn-block btn-lg 
+btn-default" role="button">Turn off</a></div></div>
+   {% else %}
+      is currently <strong>off</strong></h2><div class="row"><div 
+class="col-md-2">
+      <a href="/esp8266/{{pin}}/1" class="btn btn-block btn-lg 
+btn-primary" role="button">Turn on</a></div></div>
+   {% endif %}
+   {% endfor %}
+</body>
+</html>
