@@ -58,21 +58,16 @@ void callback(String topic, byte* message, unsigned int length) {
 
 
 void reconnect() {
-  // Loop until we're reconnected
   while (!client.connected()) {
     Serial.print("Attempting MQTT connection...");
    
     if (client.connect("ESP8266Client")) {
       Serial.println("connected");  
-      // Subscribe or resubscribe to a topic
-      // You can subscribe to more topics (to control more LEDs in this example)
       client.subscribe("esp8266/4");
-      client.subscribe("esp8266/5");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
-      Serial.println(" try again in 5 seconds");
-      // Wait 5 seconds before retrying
+      Serial.println(" try again in 5 seconds")
       delay(5000);
     }
   }
