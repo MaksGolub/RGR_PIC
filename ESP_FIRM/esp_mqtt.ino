@@ -62,12 +62,20 @@ void reconnect() {
     Serial.print("Attempting MQTT connection...");
    
     if (client.connect("ESP8266Client")) {
+<<<<<<< HEAD:ESP_FIRM/esp_mqtt.ino.ino
       Serial.println("connected");  
+=======
+      Serial.println("connected");
+>>>>>>> fce7cbb73c7008ba91edcf28126a0bccb26507b6:ESP_FIRM/sketch_jan15a.ino
       client.subscribe("esp8266/4");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
+<<<<<<< HEAD:ESP_FIRM/esp_mqtt.ino.ino
       Serial.println(" try again in 5 seconds")
+=======
+      Serial.println(" try again in 5 seconds");
+>>>>>>> fce7cbb73c7008ba91edcf28126a0bccb26507b6:ESP_FIRM/sketch_jan15a.ino
       delay(5000);
     }
   }
